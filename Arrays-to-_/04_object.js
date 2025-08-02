@@ -45,10 +45,29 @@ const dbmessage = [{
 }]
 //console.log(dbmessage[1].name) // This is how we can access elements from the Object in an array
 
-console.log(tinderUser);
+//console.log(tinderUser);
 // console.log(Object.keys(tinderUser));// To get the keys in an Object
 // console.log(Object.values(tinderUser)); // To get the values of an Object
 // console.log(Object.entries(tinderUser)); // To get entries in an object (Content inside an object)
 
-console.log(tinderUser.hasOwnProperty(["name"])) // To check whether the Object has an field of <name>
-console.log(tinderUser.hasOwnProperty(["address"])) // Returns a boolean value
+// console.log(tinderUser.hasOwnProperty(["name"])) // To check whether the Object has an field of <name>
+// console.log(tinderUser.hasOwnProperty(["address"])) // Returns a boolean value
+
+/*********Object De-Structure************/
+const course = {
+    coursename: "JS Tutorial",
+    courseInst: "Hitesh"
+}
+const {courseInst} = course // We are creating a new variable for a part of an Object
+console.log(courseInst);
+
+const {coursename: cosname} = course // We can substitute another name for the new variable
+console.log(cosname);
+
+/* Example of an JSON Format response from API
+{
+    "name": "ABC",
+    "age": 22,
+    "ismale": true
+}
+*/
