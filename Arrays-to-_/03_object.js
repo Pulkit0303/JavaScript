@@ -1,7 +1,7 @@
 //Singleton
 //Object.create
 
-//Literals
+//Object Literals
 
 const mykey = Symbol("key1")
 
