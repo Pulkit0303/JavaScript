@@ -1,0 +1,57 @@
+JavaScript Execution Context
+
+> Whenever we execute/run a JavaScript file first it creates and run Global EC (this.)
+
+>Types:
+1. Global Execution Context
+2. Function Execution Context
+
+>Phases
+    1. Memory Creation Phase / Creation Phase 
+        * Basically the memory creates space for all the variables we have created and store them in memory, allocate the memory space to them.
+    
+    2. Execution Phase
+        *
+______________________________________________________________________________________________________________________
+EXAMPLE:
+
+let val1 =10
+let val2 = 6
+function additionNum(num1,num2){
+    let result = num1 + num2
+    return result
+}
+let result1 = additionNum(val1,val2)
+let result2 = additionNum(10,20)
+______________________________________________________________________________________________________________________
+
+>Flow
+    1. Global Execution Context using this.
+
+    2. Memory Creaion Phase(Cycle-1)
+        variables get memory allocation and are stored as "Undefined" // Very Impt
+        functions get memory allocation and their "definition is stored"
+        
+        val1 -> Undefined
+        val2 -> Undefined
+        additionNum -> definition {let result..... return result}
+        result1 -> Undefined
+        result2 -> Undefined
+    
+    3. Execution Phase
+        val1 <- 10
+        val2 <- 6
+        Now result1  & result2 are calling additionNum function which will:
+            * additionNum creates a new variables environment and an execution thread (New Execution Context)
+            * Everytime additionNum is called everytime these two are created.
+            * In this example we have called the function twwice so two times New Execution Context will be created.
+            * Once the execution is done by execution thread, NEC gets deleted and a new one is created for another function call.
+        
+        For result 1                               |         For result2
+        Memory Phase            Execution Phase    |         Memory Phase               Execution Phase
+        num1 -> Undefined       num1 <- 10         |         num1 -> Undefined          num1 <- 10
+        num2 -> Undefined       num2 <- 2          |         num2 -> Undefined          num2 <- 20
+        result <- Undefined     result <- 12       |         result -> Undefined        result <- 30
+        
+        result1 will store 12                      |         result2 will store 30 
+        
