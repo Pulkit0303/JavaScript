@@ -28,15 +28,17 @@ const hasDebitCard = true
 const usingGoogleLogin = false
 const usingEmailLogin = true
 
+// It will execute only if all the conditions are true
 if (isLoggedIn && hasDebitCard){
     console.log("Paayment can be done")
 }
 
+// It will execute even if one condition is true
 if (usingEmailLogin || usingGoogleLogin){
     console.log("User LoggedIn!")
 }
 
-
+// Use of if, else if and else
 const pocket = 1000
 if(pocket < 500){
     console.log("Money less than 500");
@@ -52,4 +54,8 @@ if(pocket < 500){
     
 }
 
+//Ternary Operator
+// condition ? true: false
 
+const age = 20
+age > 18 ? console.log("Allowed!") : console.log("Not Allowed!")
