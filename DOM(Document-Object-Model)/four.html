@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulkit | DOM</title>
+</head>
+<body style="background-color: blanchedalmond;color:brown;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    //Most Optimized avoid using innerHTML
+    function addLanguage(langname){ 
+        const Newli = document.createElement('li')
+        const addText = document.createTextNode(langname)
+        Newli.appendChild(addText)
+        document.querySelector('.language').appendChild(Newli)
+    }
+    addLanguage("Java")
+    addLanguage("Python")
+
+    //Edit
+    const editLi = document.querySelector("li:nth-child(2)")
+    const newLi = document.createElement('li')
+    newLi.textContent="Goland"
+    editLi.replaceWith(newLi)
+
+    //Edit
+    const firstLi = document.querySelector("li:first-child")
+    firstLi.outerHTML = "<li>Swift</li>"
+
+    //Remove
+    const lastLi = document.querySelector("li:last-child")
+    lastLi.remove()
+</script>
+</html>
