@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML|Events</title>
   </head>
-  <body style="background-color: burlywood; color: #fff">
+  <body style="background-color: rgb(46, 46, 46); color: #fff">
     <h2>Amazing Pictures</h2>
     <ul id="images">
       <li>
@@ -36,44 +36,45 @@
   <script>
     // document.getElementById('photo2').onclick = () => {
     //     alert("Photo clicked!")
-    // } It is an old approach not recommended
+    // } 
+    //It is an old approach not recommended
 
     //attachEvent()
-    // jQuery - on
+    //jQuery - on
 
-    // Study: type, timestamp, defaultPrevented
-    // target, toElement, srcElement, currentTarget
-    // clientX, clientY, screenX, screenY
-    // altkey, ctrlkey, shiftkey, keyCode
+    //Study: type, timestamp, defaultPrevented
+    //target, toElement, srcElement, currentTarget
+    //clientX, clientY, screenX, screenY
+    //altkey, ctrlkey, shiftkey, keyCode
 
-    // document
-    //   .getElementById("images")
-    //   .addEventListener(
-    //     "click",
-    //     (e) => console.log("clicked inside the ul"),
-    //     false
-    //   );
+    document
+      .getElementById("images")
+      .addEventListener(
+        "click",
+        (e) => console.log("clicked inside the ul"),
+        false
+      );
 
-    // document
-    //   .getElementById("photo2")
-    //   .addEventListener("click", (e) => console.log("Photo 2 clicked"), false);
+    document
+      .getElementById("photo2")
+      .addEventListener("click", (e) => console.log("Photo 2 clicked"), false);
 
-    // //false - eventBubbling (bottom to top) [photo 2 clicked and then clicked inside the ul]
-    // //true - eventCapturing mode (top to bottom) [clicked inside the ul and then photo 2 clicked]
+    //false - eventPropogation (bottom to top) [photo 2 clicked and then clicked inside the ul]
+    //true - eventCapturing mode (top to bottom) [clicked inside the ul and then photo 2 clicked]
 
-    // document.getElementById("photo2").addEventListener(
-    //   "click",
-    //   (e) => {
-    //     console.log(
-    //       `Clientx: ${e.clientX} and ClientY: ${e.clientY} and timestamp: ${e.timeStamp}.`
-    //     );
-    //   },
-    //   false
-    // );
-    // document.getElementById('google').addEventListener('click',(e)=>{
-    //     e.preventDefault() // Prevents the default behaviour
-    //     console.log("Google link clicked");
-    // },false)
+    document.getElementById("photo2").addEventListener(
+      "click",
+      (e) => {
+        console.log(
+          `Clientx: ${e.clientX} and ClientY: ${e.clientY} and timestamp: ${e.timeStamp}.`
+        );
+      },
+      false
+    );
+    document.getElementById('google').addEventListener('click',(e)=>{
+        e.preventDefault() // Prevents the default behaviour
+        console.log("Google link clicked");
+    },false)
 
     document.querySelector("#images").addEventListener(
       "click",
