@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML|Events</title>
+  </head>
+  <body style="background-color: burlywood; color: #fff">
+    <h2>Amazing Pictures</h2>
+    <ul id="images">
+      <li>
+        <img
+          id="photo"
+          src="https://images.unsplash.com/photo-1754766621748-2a96cbf56a1f?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Frame Wallpaper"
+          height="300px"
+          width="500px"
+        />
+      </li>
+      <li>
+        <img
+          id="photo2"
+          src="https://images.unsplash.com/photo-1754079132679-d9bbe1ba79cf?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Frame Wallpaper"
+          height="300px"
+          width="500px"
+        />
+      </li>
+      <li>
+        <a style="color: blueviolet" href="https://google.com" id="google"
+          >Google</a
+        >
+      </li>
+    </ul>
+  </body>
+  <script>
+    // document.getElementById('photo2').onclick = () => {
+    //     alert("Photo clicked!")
+    // } It is an old approach not recommended
+
+    //attachEvent()
+    // jQuery - on
+
+    // Study: type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // document
+    //   .getElementById("images")
+    //   .addEventListener(
+    //     "click",
+    //     (e) => console.log("clicked inside the ul"),
+    //     false
+    //   );
+
+    // document
+    //   .getElementById("photo2")
+    //   .addEventListener("click", (e) => console.log("Photo 2 clicked"), false);
+
+    // //false - eventBubbling (bottom to top) [photo 2 clicked and then clicked inside the ul]
+    // //true - eventCapturing mode (top to bottom) [clicked inside the ul and then photo 2 clicked]
+
+    // document.getElementById("photo2").addEventListener(
+    //   "click",
+    //   (e) => {
+    //     console.log(
+    //       `Clientx: ${e.clientX} and ClientY: ${e.clientY} and timestamp: ${e.timeStamp}.`
+    //     );
+    //   },
+    //   false
+    // );
+    // document.getElementById('google').addEventListener('click',(e)=>{
+    //     e.preventDefault() // Prevents the default behaviour
+    //     console.log("Google link clicked");
+    // },false)
+
+    document.querySelector("#images").addEventListener(
+      "click",
+      (e) => {
+        console.log(e.target.tagName);
+
+        if (e.target.tagName === "IMG") {
+          console.log(e.target.id);
+          let removeIt = e.target.parentNode;
+          removeIt.remove();
+        }
+
+        //removeIt.parentNode.removeChild(removeIt)
+      },
+      false
+    );
+  </script>
+</html>
