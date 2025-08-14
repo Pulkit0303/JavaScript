@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Study</title>
+</head>
+<body style="background-color: #121212;">
+    <img src="" alt="Picture">
+</body>
+<script>
+    const url = 'https://api.github.com/users/Pulkit0303'
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET',url)
+    let imgUrl;
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            const responseIs = JSON.parse(this.response) //JSON.parse converts data to Object form
+            console.log(typeof responseIs);
+            console.log(responseIs.followers)
+            console.log(responseIs.avatar_url)
+            imgUrl = responseIs.avatar_url
+        }
+    }
+    xhr.send()
+</script>
+</html>
