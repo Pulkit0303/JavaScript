@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure</title>
+  </head>
+  <body style="background-color: black">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+  </body>
+  <script>
+    function inti() {
+      let name = "Mozilla";
+      function displayName() {
+        console.log(name);
+      }
+      displayName();
+    }
+    inti();
+
+    // function myName(){
+    //     let myname = "Pulkit"
+    // }
+    // console.log(myname) Error because myname is only inside myName function
+
+    function outer(){
+      let username = "pulkit0303"
+      function inner(){
+        let secret = "123"
+        console.log("INNER: ",username)
+        console.log(secret)
+      }
+      function inner2(){
+        //console.log("SIBBLINGS:",secret); Siblings cannot share variables and functions 
+        console.log("INNER2: ",username)
+      }
+      inner2()
+      inner()
+    }
+    outer()
+    //console.log("TOO OUTER",username) Outside the scope of function cannot access variable 
+
+    function makeFunc(){
+      const name = "Pulkit"
+      function displayName(){
+        console.log(name)
+      }
+      return displayName
+    }
+    const myFunc = makeFunc()
+    myFunc()
+  </script>
+  <script>
+    // document.getElementById("orange").onclick=(() => {
+    //   document.body.style.backgroundColor = `orange`;
+    // });
+
+    document.getElementById("green").onclick=(() => {
+      document.body.style.backgroundColor = `green`;
+    });
+
+    //Real world example of Closure and lexical scope
+    function clickHandler(color){
+      //document.body.style.backgroundColor=`${color}` This will not function properly
+      return function(){
+        document.body.style.backgroundColor=`${color}`
+      }
+    }
+    document.getElementById('orange').onclick=
+      clickHandler("orange")
+  </script>
+</html>
