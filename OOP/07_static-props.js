@@ -5,7 +5,7 @@ class itemDetail{
     getProductName(){
         console.log(`Product Name: ${this.name}`)
     }
-    static getProductCode(){
+    static getProductCode(){ // So that not every object of instance of the class can access the method/property(props)
         return Math.ceil(Math.random()*10000)
     }
 }
